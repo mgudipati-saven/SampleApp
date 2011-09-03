@@ -3,8 +3,6 @@
   <head>
     <title><%= title %></title>
     <%= csrf_meta_tag %>
-    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
     <%= render 'layouts/stylesheets' %>
   </head>
   <body>
@@ -12,7 +10,7 @@
       <%= render 'layouts/header' %>
       <section class="round">
         <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
+          <%= content_tag(:div, value, :class => "flash #{key}") %>
         <% end %>
         <%= yield %>
       </section>
